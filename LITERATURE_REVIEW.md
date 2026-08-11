@@ -1,6 +1,6 @@
 # Literature Review: AI Leadership Arena
 
-**Версия:** 0.1 — структурированный обзор до технической реализации  
+**Версия:** 0.2 — добавлен центральный механизм возникновения специализации
 **Дата проверки:** 11 августа 2026 года  
 **Статус:** рабочий документ; библиографическая верификация продолжается
 
@@ -44,28 +44,69 @@ development в текущем контексте не установлены и 
 контекст, история, feedback и изменение вероятности поведения, а не
 субъективное стремление.
 
-## 3. Candidate mechanisms in LLM teams
+## 3. Why should specialization emerge at all?
 
-### 3.1. Context-only differentiation
+Центральная механистическая проблема состоит не только в том, повторяет ли
+Agent A функцию, но и в том, почему ранний успех должен повышать вероятность
+её повторного принятия. Кандидатная цепочка, перенесённая из исследований
+команд людей, но не считающаяся доказанной для LLM:
+
+> initial asymmetry → successful functional contribution → group uptake →
+> repeated use of the agent in that function → accumulated context/history →
+> increased efficiency → reproducible specialization.
+
+Для AI каждый переход допускает конкурирующие объяснения:
+
+- текущий transcript продолжает ранее начатый план;
+- партнёры адресуют агенту сходные запросы и контекстуально закрепляют функцию;
+- controlled self-history напоминает агенту его прошлые действия;
+- objective performance feedback усиливает ранее успешную стратегию;
+- наблюдаемое повторение остаётся случайностью.
+
+Поэтому «функционально выгодно» здесь означает не субъективную выгоду или
+мотивацию, а измеримое снижение координационных затрат, ошибок, ходов, времени
+или токенов либо повышение качества после повторного выполнения функции.
+Необходимо проверить, воспринимает ли этот сигнал сам агент, только его
+партнёры или внешний контур оценки.
+
+Механистический вопрос проекта:
+
+> Through which interaction mechanisms, if any, does initially transient
+> functional differentiation become reproducible specialization in
+> homogeneous LLM-agent teams?
+
+Минимальные условия добавляются ступенчато: stateless baseline; текущий
+interaction context; persistent ID without history; controlled self-history;
+controlled history plus objective feedback. Обозначения этих условий в
+эксперименте должны следовать контракту памяти протокола, а не создавать новую
+конкурирующую нумерацию M0–M3.
+
+Особый исход — специализация, которую восстанавливает новая команда без памяти
+самого агента. Тогда профиль является динамическим свойством взаимодействия
+`agent × team`, а не устойчивым свойством агента.
+
+## 4. Candidate mechanisms in LLM teams
+
+### 4.1. Context-only differentiation
 
 Различие возникает как функция текущего conversational context и не
 переносится после завершения эпизода. Проверка требует stateless повторов и
 перестановочного baseline.
 
-### 3.2. Interaction feedback / contextual reinforcement
+### 4.2. Interaction feedback / contextual reinforcement
 
 Раннее действие меняет ответы партнёров и дальнейший transcript; обновлённый
 контекст повышает вероятность продолжения сходного поведения. Это социальная
 петля в пределах эпизода, но не обучение весов и не доказательство мотивации.
 
-### 3.3. History-conditioned persistence
+### 4.3. History-conditioned persistence
 
 Persistent agent получает заранее разрешённую историю. Повторение функции
 может поддерживаться этой историей без изменения model weights. Необходимы
 раздельные условия persistent ID without history и persistent ID with
 controlled history.
 
-### 3.4. Externally optimized specialization
+### 4.4. Externally optimized specialization
 
 Reward, reinforcement learning, role embeddings, routing, recruitment и иные
 контуры оптимизации целенаправленно создают специализацию. Они важны как
@@ -75,7 +116,7 @@ observational/social learning, feedback и episodic memory и сообщает �
 стабильной специализации; поэтому это пример engineered learning mechanism, а
 не stateless emergence.
 
-## 4. Engineered role-based multi-agent systems
+## 5. Engineered role-based multi-agent systems
 
 - **CAMEL** (arXiv:2303.17760) использует role-playing и inception prompting.
   Исследователь задаёт ролевую рамку; работа показывает инженерную пригодность
@@ -99,7 +140,7 @@ observational/social learning, feedback и episodic memory и сообщает �
 задач. Они являются engineering precedents, но не подтверждают H1-RQ1, когда
 различия заранее назначены, отобраны или оптимизированы.
 
-## 5. Multi-agent debate and coordination
+## 6. Multi-agent debate and coordination
 
 Multiagent Debate (arXiv:2305.14325) использует несколько экземпляров модели,
 которые предлагают ответы и обсуждают рассуждения в несколько раундов для
@@ -123,7 +164,7 @@ productive disagreement и sycophancy, исправление ошибок и в
 Zero-shot coordination with unfamiliar partners остаётся необходимым
 направлением библиографической проверки.
 
-## 6. Spontaneous behavioral differentiation
+## 7. Spontaneous behavioral differentiation
 
 Ближайшая работа — H. El Kandoussi, *Who Am I, and Who Else Is Here?
 Behavioral Differentiation Without Role Assignment in Multi-Agent LLM Systems*
@@ -145,7 +186,7 @@ differentiation, но не устанавливает longitudinal persistence �
 с controlled history. Behavioral differentiation не равна persistent role.
 Naming и scaffolding являются самостоятельными confounds и controls.
 
-## 7. Leadership
+## 8. Leadership
 
 Проект различает:
 
@@ -162,7 +203,7 @@ Naming и scaffolding являются самостоятельными confound
 agendas. Это сравнительный leadership-control, а не доказательство spontaneous
 leadership.
 
-## 8. Persistent identity and memory
+## 9. Persistent identity and memory
 
 Ключевой вопрос: что делает Agent A тем же Agent A между экспериментами, если
 model endpoint, system prompt и параметры одинаковы? Stable ID является
@@ -181,7 +222,7 @@ Identity markers и видимые имена могут менять повед
 модели, задачах и порядке ходов. M-S²L рассматривает episodic memory внутри
 оптимизируемой системы, но не изолирует минимальный эффект persistent ID.
 
-## 9. Team composition and team size
+## 10. Team composition and team size
 
 Homogeneous/heterogeneous composition нельзя смешивать с team size. Размер
 влияет на число коммуникационных связей, возможность коалиций, consensus и
@@ -192,7 +233,7 @@ integrative compromise. Сопоставимые первичные оценки
 potential size-ablation. Это экспериментальная гипотеза, а не утверждение, что
 четыре агента оптимальны.
 
-## 10. Conflict and team stabilization
+## 11. Conflict and team stabilization
 
 Понятия conflict/storming из исследований команд людей используются без
 предположений об эмоциях у агентов. Возможные operational measures:
@@ -206,7 +247,7 @@ potential size-ablation. Это экспериментальная гипоте�
 Следует различать productive disagreement, которое исправляет ошибки, и
 циклическое блокирование, ухудшающее результат.
 
-## 11. Evaluation methods
+## 12. Evaluation methods
 
 - **Task performance:** качество, ограничения, ошибки, стоимость, время и
   токены.
@@ -227,7 +268,7 @@ potential size-ablation. Это экспериментальная гипоте�
 - **Team-level structure:** information-theoretic synergy только при заранее
   определённой переменной и достаточном объёме данных.
 
-## 12. Research gaps
+## 13. Research gaps
 
 | Gap | Ближайшие работы | Уже проверено | Не проверено | Условие Arena |
 |---|---|---|---|---|
@@ -247,7 +288,7 @@ potential size-ablation. Это экспериментальная гипоте�
 Строки обозначают потенциальные gaps до полного систематического поиска; они
 не являются заявлением об отсутствии любой другой публикации.
 
-## 13. Implications for experimental design
+## 14. Implications for experimental design
 
 - **P0:** проверить логи, identity labels, topology и слепую разметку.
 - **P1:** stateless baseline, несколько task families, сбалансированный speaking
@@ -265,7 +306,7 @@ potential size-ablation. Это экспериментальная гипоте�
 Task performance и coordination измеряются раздельно: хорошее решение не
 доказывает ролевую структуру, а дифференциация не гарантирует качество.
 
-## 14. Source table
+## 15. Source table
 
 Из-за ширины полей сведения приведены в компактной таблице; «н/у» означает
 «не установлено / требует проверки».
@@ -286,7 +327,7 @@ Task performance и coordination измеряются раздельно: хор
 | MLC | н/у | н/у | н/у | н/у | н/у | н/у | н/у | н/у | exact source unresolved |
 | LLM-Coordination | н/у | н/у | н/у | н/у | н/у | н/у | unfamiliar-partner claim requires verification | н/у | exact source unresolved |
 
-## 15. Open bibliographic verification
+## 16. Open bibliographic verification
 
 Требуют проверки по полным первичным текстам:
 
