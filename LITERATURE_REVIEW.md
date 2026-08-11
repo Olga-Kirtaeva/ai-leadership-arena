@@ -18,9 +18,10 @@
 сохраняются либо адаптируются после смены команды. Единичное различие в
 поведении ещё не является устойчивой ролью.
 
-## 2. Why roles emerge in human teams
+## 2. Role differentiation in human teams: evidence from organizational and social psychology
 
-Человеческая литература предлагает несколько совместимых объяснений:
+Исследования команд людей в организационной и социальной психологии предлагают
+несколько совместимых объяснений:
 начальные различия получают групповое признание, повторное выполнение функции
 создаёт опыт, специализация облегчает координацию, а ожидания партнёров
 закрепляют распределение труда. Рабочая причинная цепочка:
@@ -36,11 +37,12 @@ task-oriented вклад — от socio-emotional координации; фун
 Понятия storming и stabilization полезны как эвристики, но требуют
 поведенческой операционализации.
 
-Библиографические реквизиты первичных человеческих работ по emergent roles,
-emergent leadership, task/socio-emotional differentiation и team development
-в текущем контексте не установлены и требуют отдельной проверки. Человеческая
-«мотивация» не переносится на LLM: для агента измеряются контекст, история,
-feedback и изменение вероятности поведения, а не субъективное стремление.
+Библиографические реквизиты первичных исследований команд людей по emergent
+roles, emergent leadership, task/socio-emotional differentiation и team
+development в текущем контексте не установлены и требуют отдельной проверки.
+Понятие человеческой мотивации не переносится на LLM: для агента измеряются
+контекст, история, feedback и изменение вероятности поведения, а не
+субъективное стремление.
 
 ## 3. Candidate mechanisms in LLM teams
 
@@ -192,8 +194,8 @@ potential size-ablation. Это экспериментальная гипоте�
 
 ## 10. Conflict and team stabilization
 
-Человеческие понятия conflict/storming используются без предположений об
-эмоциях. Возможные operational measures:
+Понятия conflict/storming из исследований команд людей используются без
+предположений об эмоциях у агентов. Возможные operational measures:
 
 - competing plans и proposal rejection;
 - reversals и correction attempts;
@@ -297,7 +299,7 @@ Task performance и coordination измеряются раздельно: хор
 5. идентификация публикаций, обозначенных как MLC и LLM-Coordination;
 6. выбор и проверка первичных работ по divergent thinking, conformity,
    sycophancy и zero-shot coordination;
-7. первичные человеческие источники по emergent roles, emergent leadership,
+7. первичные исследования команд людей по emergent roles, emergent leadership,
    task/socio-emotional differentiation, team development, size и conflict;
 8. первичные определения strong synergy, best-member utilization и
    information-theoretic synergy;
