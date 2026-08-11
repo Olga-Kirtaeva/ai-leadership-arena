@@ -401,10 +401,15 @@ size-ablation, но не прямое сравнение 3/4/5 и не тест 
 | 9. Leadership Arena | elected leadership; AgentVerse | structured leader/group systems | recombination of emergent leaders | P4 |
 | 10. Persistence under replacement | AgentVerse | dynamic composition | gradual replacement threshold | post-P4 |
 | 11. Team-size effects | MultiAgentBench | topology/protocol effects | controlled 3/4/5 comparison | size ablation |
-| 12. Context vs history | Who Am I…; M-S²L | context and memory each matter | clean causal separation | M0/M1/M2 |
+| 12. Context vs history | Who Am I…; M-S²L | context and memory each matter | clean causal separation | P1 / P2-control / P2 under the protocol-defined memory contracts |
 
 Строки обозначают потенциальные gaps до полного систематического поиска; они
 не являются заявлением об отсутствии любой другой публикации.
+
+**Статус версии 0.4:** audited working baseline, замороженный для перехода к
+концептуальной модели. Это не окончательный систематический обзор: новые работы
+и уточнения могут добавляться отдельными последующими версиями с сохранением
+этой исходной точки.
 
 ## 14. Implications for experimental design
 

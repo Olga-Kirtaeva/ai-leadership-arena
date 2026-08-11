@@ -88,6 +88,10 @@
   идентифицированы MLC и LLM-Coordination, проверены статусы публикаций и DOI,
   добавлены human-team foundations, strong synergy, information-theoretic
   emergence и controlled team-size evidence.
+- `LITERATURE_REVIEW.md` версии 0.4 заморожен как audited working baseline, но
+  не как окончательный систематический обзор.
+- Создан `CONCEPTUAL_MODEL.md`: определены уровни differentiation →
+  specialization → stabilization → role и фальсифицируемые причинные переходы.
 
 ## Открытые вопросы
 
@@ -127,11 +131,8 @@
 
 ## Следующий конкретный шаг
 
-Создать `THEORETICAL_MODEL.md`: формализовать причинный граф от ранней
-асимметрии через group uptake, coordination-cost reduction, историю и feedback
-к specialization/role stabilization; для каждого ребра указать наблюдаемые
-переменные, альтернативные объяснения и соответствующее экспериментальное
-условие. Затем обновить протокол до версии 0.2.
+Согласовать пороги и статистические критерии переходов в `CONCEPTUAL_MODEL.md`,
+затем перенести утверждённую модель в `RESEARCH_PROTOCOL.md` версии 0.2.
 
 ## Правило обновления
 
