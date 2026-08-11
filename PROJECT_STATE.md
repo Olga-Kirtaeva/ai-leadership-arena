@@ -84,6 +84,10 @@
 - Разделены functional differentiation, functional specialization, role
   stabilization и persistent behavioral role profile; M4 оставлен будущим
   контролем group recognition.
+- Проведён библиографический аудит `LITERATURE_REVIEW.md` версии 0.4:
+  идентифицированы MLC и LLM-Coordination, проверены статусы публикаций и DOI,
+  добавлены human-team foundations, strong synergy, information-theoretic
+  emergence и controlled team-size evidence.
 
 ## Открытые вопросы
 
@@ -123,12 +127,11 @@
 
 ## Следующий конкретный шаг
 
-Создать `LITERATURE_REVIEW.md` и провести первичный обзор работ по возникающим
-ролям, лидерству, динамическому распределению функций, конфликту и оценке
-LLM-мультиагентных систем. Отдельно исследовать, откуда берётся разделение
-ролей: задаётся ли оно архитектурой и инструкциями или возникает из ранней
-случайности, социальной обратной связи, памяти и path dependence. По
-результатам обновить протокол до версии 0.2.
+Создать `THEORETICAL_MODEL.md`: формализовать причинный граф от ранней
+асимметрии через group uptake, coordination-cost reduction, историю и feedback
+к specialization/role stabilization; для каждого ребра указать наблюдаемые
+переменные, альтернативные объяснения и соответствующее экспериментальное
+условие. Затем обновить протокол до версии 0.2.
 
 ## Правило обновления
 

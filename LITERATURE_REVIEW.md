@@ -1,6 +1,6 @@
 # Literature Review: AI Leadership Arena
 
-**Версия:** 0.3 — добавлены механизмы самоподдерживающейся специализации
+**Версия:** 0.4 — полный библиографический аудит ключевого корпуса
 **Дата проверки:** 11 августа 2026 года  
 **Статус:** рабочий документ; библиографическая верификация продолжается
 
@@ -37,9 +37,25 @@ task-oriented вклад — от socio-emotional координации; фун
 Понятия storming и stabilization полезны как эвристики, но требуют
 поведенческой операционализации.
 
-Библиографические реквизиты первичных исследований команд людей по emergent
-roles, emergent leadership, task/socio-emotional differentiation и team
-development в текущем контексте не установлены и требуют отдельной проверки.
+Gardner et al. (2024), DOI:10.1146/annurev-orgpsych-110721-040430,
+рассматривают leadership emergence как процесс на нескольких уровнях анализа,
+а не как простое обнаружение фиксированной черты. Для Arena отсюда следует
+измерять предоставление влияния другими участниками наряду с инициативой.
+
+Tuckman (1965), DOI:10.1037/h0022100, синтезировал 50 работ и предложил четыре
+стадии развития малых групп, разделяя interpersonal и task activity. Это
+историческая теоретическая схема, а не универсальный закон и не основание
+ожидать обязательный storming у LLM.
+
+Bales (1950), *Interaction Process Analysis*, предложил наблюдательную систему
+из 12 категорий с task и socio-emotional областями. Для Arena полезен принцип
+кодирования наблюдаемых актов; исходные категории нельзя переносить без
+адаптации и проверки надёжности.
+
+Bernerth et al. (2023), DOI:10.1002/job.2708, в метаанализе показали, что связь
+team size с effectiveness зависит от характеристик задач и process losses.
+Это поддерживает size-ablation, но не утверждение об оптимальности четырёх.
+
 Понятие человеческой мотивации не переносится на LLM: для агента измеряются
 контекст, история, feedback и изменение вероятности поведения, а не
 субъективное стремление.
@@ -204,8 +220,10 @@ observational/social learning, feedback и episodic memory и сообщает �
 - **AgentVerse** (arXiv:2308.10848) динамически конфигурирует группы и исследует
   наблюдаемые социальные поведения. Точная роль prompt- и composition-design в
   каждом эксперименте требует проверки полного текста.
-- **MLC:** точная публикация, расшифровка названия и экспериментальные условия
-  по переданному контексту не установлены; утверждения о ней отложены.
+- **MLC** — Li et al., *Advancing Collaborative Debates with Role
+  Differentiation through Multi-Agent Reinforcement Learning*, ACL 2025,
+  DOI:10.18653/v1/2025.acl-long.1105. Role embeddings и differentiation module
+  обучаются совместно с downstream task; это явно optimized specialization.
 
 Эти системы показывают, как роли, workflow и topology могут улучшать решение
 задач. Они являются engineering precedents, но не подтверждают H1-RQ1, когда
@@ -228,12 +246,20 @@ milestone-based показатели и протоколы star, chain, tree и 
 эффективность и стоимость. Это обосновывает fixed initial topology и отдельную
 topology-ablation.
 
+**LLM-Coordination** — Agashe et al., Findings of NAACL 2025,
+DOI:10.18653/v1/2025.findings-naacl.448 (arXiv:2310.03903). Benchmark включает
+Agentic Coordination в четырёх pure coordination games и CoordQA из 198
+вопросов; zero-shot experiments проверяют новых партнёров. Это precedent для
+partner reshuffling, но не исследование устойчивых ролей.
+
+**Encouraging Divergent Thinking through Multi-Agent Debate** (Liang et al.,
+EMNLP 2024, DOI:10.18653/v1/2024.emnlp-main.992; arXiv:2305.19118) использует
+debaters и judge, то есть назначенную debate structure. Работа релевантна
+productive disagreement, но не spontaneous role emergence.
+
 Для AI Leadership Arena важно отдельно измерять consensus и conformity,
 productive disagreement и sycophancy, исправление ошибок и восстановление от
-неверного согласия. Точная публикация под названием **LLM-Coordination**, а
-также выбранная divergent-thinking работа в текущем контексте не установлены.
-Zero-shot coordination with unfamiliar partners остаётся необходимым
-направлением библиографической проверки.
+неверного согласия.
 
 ## 7. Spontaneous behavioral differentiation
 
@@ -250,12 +276,14 @@ similarity составляет 0.56 в heterogeneous и 0.85 в homogeneous con
 сходства при раскрытии model names (0.56 → 0.77) и схождение профилей при
 удалении prompt scaffolding.
 
-Homogeneous condition особенно важна: она ближе всего к проверке различий при
-одинаковой модели. Однако основной сильный эффект относится к сравнению
-heterogeneous/homogeneous composition. Работа показывает structured behavioral
-differentiation, но не устанавливает longitudinal persistence одного agent ID
-с controlled history. Behavioral differentiation не равна persistent role.
-Naming и scaffolding являются самостоятельными confounds и controls.
+Homogeneous Series B использует 8 экземпляров LLaMA 3.3 70B и 21 запуск;
+heterogeneous baseline использует 7 разных моделей. Все основные серии имеют
+group transcript внутри запуска, но межзадачная persistent identity/history не
+исследуется. Две fictional planning tasks не оцениваются по объективному
+качеству результата: сама работа прямо оставляет task performance будущему
+исследованию. Поэтому она показывает structured behavioral differentiation,
+но не longitudinal specialization или persistent role. Naming, order,
+temperature и scaffolding являются самостоятельными confounds/controls.
 
 ## 8. Leadership
 
@@ -271,8 +299,12 @@ Naming и scaffolding являются самостоятельными confound
 Лидер не определяется только количеством сообщений или первым ходом.
 *Evaluating Cooperation in LLM Social Groups through Elected Leadership*
 (arXiv:2604.11721, preprint) использует elected personas и candidate-driven
-agendas. Это сравнительный leadership-control, а не доказательство spontaneous
-leadership.
+agendas в популяциях из 8 и 20 агентов на GPT-4o, GPT-4.1 и Gemini 2.5 Flash.
+Агенты получают SVO-personas и собственную память о прошлых голосах, действиях,
+победителях, повестках, репликах и reflection. Поэтому это насыщенный
+сравнительный leadership-control, а не доказательство spontaneous leadership;
+одновременно работа показывает полезные operational measures: references,
+next-speaker nominations, centrality, welfare, survival и equality.
 
 ## 9. Persistent identity and memory
 
@@ -304,6 +336,15 @@ integrative compromise. Сопоставимые первичные оценки
 potential size-ablation. Это экспериментальная гипотеза, а не утверждение, что
 четыре агента оптимальны.
 
+Kim et al., *Capable language models can outgrow the benefits of collaboration*
+(Nature Machine Intelligence, 2026, DOI:10.1038/s42256-026-01268-y), держат
+prompts, tools и compute budgets постоянными и варьируют coordination structure
+и capability. Их agent-count experiment использует размеры 1, 2, 3, 5, 7 и 9
+для двух Gemini-моделей на BrowseComp-Plus при matched per-system compute.
+Число ходов растёт сверхлинейно, а performance optimum зависит от модели и
+архитектуры. Это сильное обоснование контроля бюджета и нелинейного
+size-ablation, но не прямое сравнение 3/4/5 и не тест возникновения ролей.
+
 ## 11. Conflict and team stabilization
 
 Понятия conflict/storming из исследований команд людей используются без
@@ -331,13 +372,19 @@ potential size-ablation. Это экспериментальная гипоте�
   коммуникации.
 - **Influence:** network centrality, proposal acceptance, происхождение
   итоговых действий.
-- **Team value:** strong synergy и best-member utilization; точные определения
-  должны быть выбраны по первичному источнику.
+- **Team value:** strong synergy — достигает ли команда результата не хуже
+  лучшего индивидуального участника. Pappu et al., *Multi-Agent Teams Hold
+  Experts Back* (ICML 2026 poster; arXiv:2602.01011), используют этот критерий
+  для self-organizing LLM teams и выявляют integrative compromise как
+  препятствие использованию эксперта.
 - **Reliability:** Cohen's kappa для двух разметчиков, Fleiss' kappa для
   нескольких категориальных разметчиков, ICC для количественных оценок.
 - **Inference:** mixed/hierarchical models с run/team/task как уровнями.
-- **Team-level structure:** information-theoretic synergy только при заранее
-  определённой переменной и достаточном объёме данных.
+- **Team-level structure:** *Emergent Coordination in Multi-Agent Language
+  Models* (arXiv:2510.05174; ICLR 2026 conference paper) предлагает
+  information decomposition для отделения spurious temporal coupling от
+  performance-relevant cross-agent synergy. Метод применим только при заранее
+  определённых переменных и достаточном объёме временных данных.
 
 ## 13. Research gaps
 
@@ -384,44 +431,54 @@ Task performance и coordination измеряются раздельно: хор
 
 | Reference | Year | Status | DOI / arXiv | Models / N | Composition / assigned roles | ID / memory | Tasks / protocol | Metrics / controls / findings | Limits / relevance |
 |---|---:|---|---|---|---|---|---|---|---|
-| El Kandoussi, *Who Am I…* | 2026 | preprint; ACL ARR submission | arXiv:2604.00026; DOI:10.21203/rs.3.rs-9088445/v1 | 7 heterogeneous models; homogeneous N н/у | both; no explicit roles | persistence/memory н/у | group discussions; 12 series | coding, cosine, kappa; 0.56 vs 0.85; failure compensation | no longitudinal role test; closest emergence precedent |
-| Li et al., CAMEL | 2023 | preprint; later publication status н/у | arXiv:2303.17760 | models/N н/у | role-playing; assigned | н/у | instruction cooperation | performance details н/у | engineered roles |
-| Hong et al., MetaGPT | 2023 | preprint; later status н/у | arXiv:2308.00352 | models/N н/у | heterogeneous assigned roles | н/у | software engineering, SOP | coherent solutions reported | engineered workflow |
-| Qian et al., ChatDev | 2023 | preprint; later status н/у | arXiv:2307.07924 | models/N н/у | specialized assigned agents | н/у | software, chat chain | design/debug findings | engineered roles |
-| Liu et al., DyLAN | 2023 | preprint; later status н/у | arXiv:2310.02170 | models/N н/у | selected team | trial-based selection | code, decisions, reasoning, arithmetic; dynamic network | optimized recruitment |
-| Chen et al., AgentVerse | 2023 | preprint; later status н/у | arXiv:2308.10848 | models/N н/у | dynamic composition | н/у | collaborative tasks | group vs single-agent; social behaviors | conditions require full-text check |
-| Du et al., Multiagent Debate | 2023 | preprint; later status н/у | arXiv:2305.14325 | models/N н/у | identical procedure; roles н/у | episode history only | multi-round debate; math/strategy/factuality | task performance | no persistent identity |
-| Zhu et al., MultiAgentBench | 2025 | preprint; later status н/у | arXiv:2503.01935 | models/N н/у | protocols vary | н/у | interactive benchmark | milestones; star/chain/tree/graph | benchmark, not role-emergence test |
-| Li et al., Sparse Topology | 2024 | preprint; later status н/у | arXiv:2406.11776 | GPT/Mistral; N н/у | topology manipulated | н/у | debate, multimodal/alignment | quality and cost | topology confound evidence |
-| Faulkner et al., Elected Leadership | 2026 | preprint | arXiv:2604.11721 | models/N н/у | elected personas/agendas | enduring strategy details н/у | common-pool simulation | welfare, survival, centrality | assigned/elected control only |
-| M-S²L | 2025 | preprint | arXiv:2510.18515 | models/N н/у | specialization optimized | episodic memory | tasks/protocol н/у | rapid stable specialization reported | mechanisms bundled |
+| El Kandoussi, *Who Am I…* | 2026 | preprint; ACL ARR submission | arXiv:2604.00026; DOI:10.21203/rs.3.rs-9088445/v1 | 7-model heterogeneous pool; homogeneous: 8× LLaMA 3.3 70B | both; no explicit roles | within-run transcript; no cross-task persistent history | 2 fictional planning briefs; 12 series, 208 runs | 6 flags, cosine, Kruskal–Wallis, bootstrap, kappa; 0.56 vs 0.85; compensation | no task-quality outcome or longitudinal role test; closest emergence precedent |
+| Li et al., CAMEL | 2023 | peer-reviewed, NeurIPS 2023 | DOI:10.52202/075280-2264; arXiv:2303.17760 | 2 gpt-3.5-turbo agents in core experiments | complementary roles assigned via inception prompts | episode transcript; cross-task memory not established | instruction-following role-play | conversational/task data; failure-mode details require extraction | engineered roles |
+| Hong et al., MetaGPT | 2024 | peer-reviewed, ICLR 2024 | arXiv:2308.00352; DOI not assigned on proceedings page | GPT-based agents; five defined organizational roles | Product Manager, Architect, Project Manager, Engineer, QA Engineer | shared message pool; projects independent in base system | software engineering, SOP | coherence and benchmark results reported | engineered workflow |
+| Qian et al., ChatDev | 2024 | peer-reviewed, ACL 2024 | DOI:10.18653/v1/2024.acl-long.810; arXiv:2307.07924 | ChatGPT-3.5 agents; CEO/CTO/programmer/reviewer/tester among assigned roles | specialized assigned agents | chat-chain episode context | design, coding, testing, documentation | task outcome, tokens, files, review/testing analyses | engineered roles |
+| Liu et al., DyLAN | 2024 | peer-reviewed, COLM 2024 | arXiv:2310.02170; DOI not established | models/N require extraction | team selected by Agent Importance Score after preliminary trial | trial-based selection, not persistent identity | code, decisions, general/arithmetic reasoning | dynamic T-FFN; MMLU gains up to 25% on selected subjects reported | optimized recruitment |
+| Chen et al., AgentVerse | 2024 | peer-reviewed, ICLR 2024 | arXiv:2308.10848; DOI not assigned on proceedings page | model/N details require extraction | expert agents recruited; dynamic composition | memory details require extraction | text, reasoning, coding, tools, embodied AI | group vs single-agent; collaborative behaviors | composition is engineered |
+| Du et al., Multiagent Debate | 2024 | peer-reviewed, ICML 2024 | arXiv:2305.14325; proceedings DOI not established | model/N details require extraction | common debate procedure; no longitudinal roles | episode history only | multi-round math, strategy, factuality | task performance/factuality | no persistent identity |
+| Zhu et al., MultiAgentBench | 2025 | peer-reviewed, ACL 2025 | DOI:10.18653/v1/2025.acl-long.421; arXiv:2503.01935 | includes GPT and Llama families; exact N per scenario requires extraction | agent profiles/relationships and protocols vary | memory details require extraction | research, bargaining, Werewolf, Minecraft | milestone KPIs; star/chain/tree/graph; cognitive planning +3% reported | benchmark, not role-emergence test |
+| Li et al., Sparse Topology | 2024 | peer-reviewed, Findings of EMNLP 2024 | DOI:10.18653/v1/2024.findings-emnlp.427; arXiv:2406.11776 | GPT and Mistral; N/topologies require extraction | topology manipulated | within-debate context | reasoning, multimodal reasoning, alignment labeling | accuracy and inference cost; sparse comparable/superior | static topology; direct confound evidence |
+| Faulkner et al., Elected Leadership | 2026 | preprint | arXiv:2604.11721 | GPT-4o, GPT-4.1, Gemini 2.5 Flash; populations of 8 and 20 | four leader personas with SVO categories; fixed/elected/no-leader controls | own salient memories include votes, harvests, winners, agendas, utterances, reflection | common-pool resource simulation over policy/election/harvest/discussion/reflection cycles | welfare, survival, equality, elections, references/nominations, centrality, sentiment | assigned personas and institutionalized leadership; not spontaneous leadership |
+| M-S²L | 2025 | preprint | arXiv:2510.18515 | multimodal LLM agents; model/N require extraction | specialization optimized | episodic memory | Collaborative Assembly Environment; ambiguous blueprints, information asymmetry | completion rate, time; multimodal/no-social-learning ablations; stable labor division reported | mechanisms bundled |
 | Roberts & Goldstone, *Adaptive Group Coordination…* | 2011 | peer-reviewed, PLOS ONE | DOI:10.1371/journal.pone.0022377 | human participants; N/group-size range requires full-text check | common goal; no assigned roles | group task experience | numeric-sum task; no direct communication, group feedback | rounds, reactivity, self-consistency; spontaneous differentiation in larger groups | human mechanism; coordination-cost precedent |
 | Liang, Moreland & Argote, *Group Versus Individual Training…* | 1995 | peer-reviewed, PSPB | DOI:10.1177/0146167295214009 | humans; 3-person groups | group vs individual training | shared training history | radio assembly | recall and product quality; TMS mediation | human TMS analogue |
 | Lewis, *Knowledge and Performance…* | 2004 | peer-reviewed, Management Science | DOI:10.1287/mnsc.1040.0257 | 261 humans; 64 MBA teams | expertise/familiarity varied naturally | longitudinal team history | consulting projects | TMS, performance, viability, communication | observational/field causal limits |
-| Lewis, Gillis & Lange, *Who Says You Can't Take It With You?* | 2003 | Academy of Management Proceedings; peer-review status requires check | DOI:10.5465/ambpp.2003.13792535 | humans; N н/у | team structure | TMS across tasks | multiple tasks | transfer and interaction routines | transfer boundaries require full-text check |
-| MLC | н/у | н/у | н/у | н/у | н/у | н/у | н/у | н/у | exact source unresolved |
-| LLM-Coordination | н/у | н/у | н/у | н/у | н/у | н/у | unfamiliar-partner claim requires verification | н/у | exact source unresolved |
+| Lewis, Gillis & Lange, *Who Says You Can't Take It With You?* | 2003 | Academy of Management Proceedings; peer-review status requires check | DOI:10.5465/ambpp.2003.13792535 | humans; N not reported on accessible abstract page | team structure | TMS across tasks | multiple tasks | transfer and interaction routines | transfer boundaries and sample require full text |
+| Li et al., MLC | 2025 | peer-reviewed, ACL 2025 | DOI:10.18653/v1/2025.acl-long.1105 | multiple LLMs; exact models/N require extraction | random initial roles, learned role embeddings | sequence-aware role state; persistent memory not established | debate on 7 datasets | downstream task metrics; differentiation module | role specialization explicitly optimized |
+| Agashe et al., LLM-Coordination | 2025 | peer-reviewed, Findings of NAACL 2025 | DOI:10.18653/v1/2025.findings-naacl.448; arXiv:2310.03903 | includes GPT-4-turbo; complete model list requires extraction | coordination architecture, no role-emergence test | partner state within games; cross-task memory not established | 4 pure-coordination games; 198 CoordQA items | game performance, environment comprehension, ToM, joint planning, ZSC | unfamiliar-partner precedent, not longitudinal specialization |
+| Liang et al., Divergent Thinking MAD | 2024 | peer-reviewed, EMNLP 2024 | DOI:10.18653/v1/2024.emnlp-main.992; arXiv:2305.19118 | model/N require extraction | debaters plus assigned judge | within-debate context | translation and counter-intuitive arithmetic | task accuracy, adaptive stopping, disagreement | engineered debate roles |
+| Gardner et al., Leadership Emergence review | 2024 | peer-reviewed, Annual Review | DOI:10.1146/annurev-orgpsych-110721-040430 | studies of human teams | emergent/assigned forms distinguished | longitudinal processes reviewed | organizational/team settings | multilevel process synthesis | theory bridge; not AI evidence |
+| Tuckman, *Developmental Sequence…* | 1965 | peer-reviewed review, Psychological Bulletin | DOI:10.1037/h0022100 | synthesis of 50 human-group studies | functional roles emerge in proposed sequence | temporal group development | therapy, training, natural and laboratory groups | qualitative stage synthesis | historical model, not universal law |
+| Bales, *Interaction Process Analysis* | 1950 | scholarly monograph | no DOI established | human small groups | observational categories, not assigned roles | episode interaction | group discussion | 12 task/socio-emotional categories | framework requires adaptation and reliability testing |
+| Bernerth et al., Team Size meta-analysis | 2023 | peer-reviewed, Journal of Organizational Behavior | DOI:10.1002/job.2708 | human organizational teams | not role assignment study | n/a | varied organizational tasks | meta-analysis of size/effectiveness and moderators | does not identify optimal LLM team size |
+| Kim et al., *Capable language models…* | 2026 | peer-reviewed, Nature Machine Intelligence | DOI:10.1038/s42256-026-01268-y | OpenAI, Google, Anthropic families; 1/2/3/5/7/9 for two Gemini models in size experiment | single plus independent/centralized/decentralized/hybrid | memory not central | six benchmarks; size ablation on BrowseComp-Plus | matched compute; accuracy, turns, overhead, redundancy; task/model-dependent optima | no roles or longitudinal identity; size precedent |
+| Pappu et al., *Multi-Agent Teams Hold Experts Back* | 2026 | peer-reviewed, ICML 2026 poster | arXiv:2602.01011 | heterogeneous LLM agents; exact N requires extraction | self-organizing teams, expertise manipulated | persistent history not established | human-inspired tasks plus MMLU-Pro, GPQA, HLE, MATH-500, SimpleQA | strong synergy, expert identification/utilization, integrative compromise | close metric; not role-persistence study |
+| *Emergent Coordination in Multi-Agent Language Models* | 2025/2026 | peer-reviewed, ICLR 2026 | arXiv:2510.05174 | model/N require extraction | interaction structure analyzed | temporal dynamics | target-sum/group coordination task reported | information decomposition, cross-agent synergy | new method; applicability to text profiles requires validation |
 
 ## 16. Open bibliographic verification
 
-Требуют проверки по полным первичным текстам:
+Метаданные и основной дизайн всех именованных источников проверены. Следующие
+поля нельзя надёжно закрыть по abstract/proceedings pages и требуют извлечения
+таблиц, приложений или дополнительного целевого поиска:
 
-1. peer-reviewed status, venue и DOI для CAMEL, MetaGPT, ChatDev, DyLAN,
-   AgentVerse, Multiagent Debate, MultiAgentBench и sparse-topology paper;
-2. точные модели, N agents, prompts, memory и communication protocol почти во
-   всех инженерных работах;
-3. точный N homogeneous condition и longitudinal setup в *Who Am I…*;
-4. точные задачи, число агентов и ablations M-S²L;
-5. идентификация публикаций, обозначенных как MLC и LLM-Coordination;
-6. выбор и проверка первичных работ по divergent thinking, conformity,
-   sycophancy и zero-shot coordination;
-7. первичные исследования команд людей по emergent roles, emergent leadership,
-   task/socio-emotional differentiation, team development, size и conflict;
-8. первичные определения strong synergy, best-member utilization и
-   information-theoretic synergy;
-9. сопоставимые исследования команд из 3, 4 и 5 LLM-агентов;
-10. наличие работ, напрямую сравнивающих persistent ID without history с
-    persistent ID with controlled history.
+1. точные модели, N agents, prompts, memory и полный communication protocol для
+   CAMEL, MetaGPT, ChatDev, DyLAN, AgentVerse, Multiagent Debate,
+   MultiAgentBench, sparse-topology, MLC и M-S²L;
+2. полные ablations и число агентов M-S²L;
+3. первичные LLM-работы, прямо измеряющие conformity, sycophancy и recovery
+   from incorrect consensus в командном протоколе;
+4. точная формула best-member utilization и параметры strong-synergy
+   экспериментов, применимые к выбранным задачам;
+5. controlled comparison, включающий одновременно команды ровно из 3, 4 и 5
+   одинаковых LLM-агентов;
+6. работа, напрямую сравнивающая persistent ID without history с persistent ID
+   with controlled history при остальных равных условиях;
+7. экспериментальное обоснование transactive functional memory как отдельного
+   AI-конструкта — сейчас это только рабочая аналогия;
+8. DOI для proceedings ICLR и ICML записей, где официальная страница его не
+    присваивает; arXiv DOI нельзя подменять DOI рецензированной версии.
 
 До завершения этих проверок неизвестные поля нельзя использовать для расчёта
 выборки, выбора модели или утверждений о научной новизне.
