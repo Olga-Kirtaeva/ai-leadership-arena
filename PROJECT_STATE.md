@@ -58,6 +58,9 @@
 - RQ-M: через какие механизмы временная дифференциация превращается в
   воспроизводимую специализацию; возможный носитель профиля — система
   `agent × team`, а не только отдельный агент.
+- Кандидатные механизмы: coordination-cost reduction,
+  history-conditioned efficiency, group recognition, transactive functional
+  memory и interaction-mediated reinforcement.
 
 ## Сделано
 
@@ -65,7 +68,7 @@
 - Добавлены `README.md`, `LICENSE` и `LICENSING.md`.
 - Зафиксированы конфиденциальность и `All rights reserved`.
 - Создан полный `PROJECT_CONTEXT.md`.
-- Создан рабочий `RESEARCH_PROTOCOL.md` версии 0.1.5.
+- Создан рабочий `RESEARCH_PROTOCOL.md` версии 0.1.6.
 - Добавлены контракты памяти M0–M3, P2-control, контроль очередности, сравнение
   размеров команд и независимая операционализация функциональной вакансии.
 - Создан `QUESTIONS.md` с приоритетным вторичным вопросом о минимальных
@@ -78,6 +81,9 @@
   метрики, контроли, фазы пилота и правила исключения.
 - В протокол и обзор добавлен центральный вопрос о причинной цепочке от раннего
   успешного вклада через team uptake и историю к воспроизводимой специализации.
+- Разделены functional differentiation, functional specialization, role
+  stabilization и persistent behavioral role profile; M4 оставлен будущим
+  контролем group recognition.
 
 ## Открытые вопросы
 

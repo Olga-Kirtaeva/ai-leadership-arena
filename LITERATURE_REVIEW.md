@@ -1,6 +1,6 @@
 # Literature Review: AI Leadership Arena
 
-**Версия:** 0.2 — добавлен центральный механизм возникновения специализации
+**Версия:** 0.3 — добавлены механизмы самоподдерживающейся специализации
 **Дата проверки:** 11 августа 2026 года  
 **Статус:** рабочий документ; библиографическая верификация продолжается
 
@@ -44,7 +44,7 @@ development в текущем контексте не установлены и 
 контекст, история, feedback и изменение вероятности поведения, а не
 субъективное стремление.
 
-## 3. Why should specialization emerge at all?
+## 3. Mechanisms of specialization: why should differentiation become self-reinforcing?
 
 Центральная механистическая проблема состоит не только в том, повторяет ли
 Agent A функцию, но и в том, почему ранний успех должен повышать вероятность
@@ -84,6 +84,77 @@ controlled history plus objective feedback. Обозначения этих ус
 Особый исход — специализация, которую восстанавливает новая команда без памяти
 самого агента. Тогда профиль является динамическим свойством взаимодействия
 `agent × team`, а не устойчивым свойством агента.
+
+### 3.1. Coordination-cost reduction
+
+Roberts and Goldstone (2011), *Adaptive Group Coordination and Role
+Differentiation*, PLOS ONE 6(7):e22377,
+DOI:10.1371/journal.pone.0022377, — рецензированное экспериментальное
+исследование общей групповой цели без прямой коммуникации. Участники подбирали
+числовые вклады к неизвестной цели и получали общий feedback. С опытом группы
+требовали меньше раундов; при росте размера группы наблюдались spontaneous role
+differentiation и self-consistency. Интерпретация для Arena: специализация
+может уменьшать число одновременно изменяющихся частей системы. Стабильный
+вклад не следует автоматически кодировать как пассивность.
+
+### 3.2. History-conditioned efficiency
+
+Повторение человеческой функции может накапливать навык. Для LLM без изменения
+weights допустим более узкий термин: **history-conditioned efficiency**.
+Controlled history может дать подходящий procedural precedent; эффект должен
+измеряться качеством, ошибками, ходами, временем и токенами, а не называться
+обучением или компетентностью без дополнительного теста.
+
+### 3.3. Group recognition and expectation
+
+Партнёры могут воспроизводить специализацию, адресуя агенту похожие задачи,
+ссылаясь на его вклад и освобождая соответствующую функцию. Поэтому необходимо
+логировать адресованные запросы, ссылки на агента, принятие предложений и
+последующее распределение функций. Influence здесь предоставляется
+взаимодействием, а не выводится из самопровозглашения.
+
+### 3.4. Transactive memory systems
+
+Liang, Moreland and Argote (1995), *Group Versus Individual Training and Group
+Performance: The Mediating Role of Transactive Memory*, DOI:
+10.1177/0146167295214009, сравнили совместное и индивидуальное обучение сборке
+транзисторных радиоприёмников. Совместно обучавшиеся тройки лучше вспоминали
+процедуру и собирали более качественные устройства; анализ поддержал TMS как
+основной посредующий механизм.
+
+Lewis (2004), *Knowledge and Performance in Knowledge-Worker Teams*,
+Management Science 50(11):1519–1533, DOI:10.1287/mnsc.1040.0257, исследовала
+64 MBA consulting teams (261 участник). TMS развивались в ходе проекта в связи
+с исходным распределением expertise, familiarity и коммуникацией и были
+положительно связаны с performance и viability.
+
+Lewis, Gillis and Lange (2003), *Who Says You Can't Take It With You?*, Academy
+of Management Proceedings, DOI:10.5465/ambpp.2003.13792535, проверяли перенос
+TMS между задачами. Результаты поддержали перенос learning-system structure,
+основанной на division of cognitive labor и interaction routines; особенно
+важна возможность сохранения структуры при изменении состава. Это не означает
+безусловный перенос на любые задачи и требует проверки границ сходства задач.
+
+Для Arena TMS служит теоретическим аналогом, но не готовой мерой. Рабочая идея
+**transactive functional memory** означает `who tends to do what effectively`,
+а не `who knows what`. До валидации она не объявляется самостоятельным
+конструктом.
+
+### 3.5. Interaction-mediated reinforcement
+
+Успешное действие изменяет transcript: предложение принимают, на него
+ссылаются, следующий раунд использует его структуру, а партнёры снижают
+дублирование. Так раннее различие может стать самоподдерживающимся без
+долговременной памяти и reward. Наблюдаемая цепочка для LLM ограничивается
+`successful contribution → changed transcript/feedback/history → changed
+distribution over subsequent outputs`.
+
+### 3.6. Future recognition perturbation
+
+После базового пилота возможен контроль M4: сведения об успешных прошлых
+вкладах A не получает никто, получает сам A либо получают только новые
+партнёры. Он отделяет self-persistence от team-assigned stabilization. M4 не
+включён в первый пилот и не изменяет текущие M0–M3 протокола.
 
 ## 4. Candidate mechanisms in LLM teams
 
@@ -324,6 +395,10 @@ Task performance и coordination измеряются раздельно: хор
 | Li et al., Sparse Topology | 2024 | preprint; later status н/у | arXiv:2406.11776 | GPT/Mistral; N н/у | topology manipulated | н/у | debate, multimodal/alignment | quality and cost | topology confound evidence |
 | Faulkner et al., Elected Leadership | 2026 | preprint | arXiv:2604.11721 | models/N н/у | elected personas/agendas | enduring strategy details н/у | common-pool simulation | welfare, survival, centrality | assigned/elected control only |
 | M-S²L | 2025 | preprint | arXiv:2510.18515 | models/N н/у | specialization optimized | episodic memory | tasks/protocol н/у | rapid stable specialization reported | mechanisms bundled |
+| Roberts & Goldstone, *Adaptive Group Coordination…* | 2011 | peer-reviewed, PLOS ONE | DOI:10.1371/journal.pone.0022377 | human participants; N/group-size range requires full-text check | common goal; no assigned roles | group task experience | numeric-sum task; no direct communication, group feedback | rounds, reactivity, self-consistency; spontaneous differentiation in larger groups | human mechanism; coordination-cost precedent |
+| Liang, Moreland & Argote, *Group Versus Individual Training…* | 1995 | peer-reviewed, PSPB | DOI:10.1177/0146167295214009 | humans; 3-person groups | group vs individual training | shared training history | radio assembly | recall and product quality; TMS mediation | human TMS analogue |
+| Lewis, *Knowledge and Performance…* | 2004 | peer-reviewed, Management Science | DOI:10.1287/mnsc.1040.0257 | 261 humans; 64 MBA teams | expertise/familiarity varied naturally | longitudinal team history | consulting projects | TMS, performance, viability, communication | observational/field causal limits |
+| Lewis, Gillis & Lange, *Who Says You Can't Take It With You?* | 2003 | Academy of Management Proceedings; peer-review status requires check | DOI:10.5465/ambpp.2003.13792535 | humans; N н/у | team structure | TMS across tasks | multiple tasks | transfer and interaction routines | transfer boundaries require full-text check |
 | MLC | н/у | н/у | н/у | н/у | н/у | н/у | н/у | н/у | exact source unresolved |
 | LLM-Coordination | н/у | н/у | н/у | н/у | н/у | н/у | unfamiliar-partner claim requires verification | н/у | exact source unresolved |
 
